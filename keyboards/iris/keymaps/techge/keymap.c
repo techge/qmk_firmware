@@ -16,6 +16,10 @@ extern keymap_config_t keymap_config;
 #define MOD_END MT(MOD_LSFT | MOD_LGUI, KC_END) // Shift + Gui when holded, End key otherwise
 
 // add a "list" key
+// add a CAPS lock
+// add Esc alternative for olkb style keyboard (current RSFT is an option)
+// add PSCR alternative
+// add ENTER alternative (current RSFT should be an option somehow too)
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -34,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MENU,          MOD_END, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_MENU,          MOD_END, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LALT, LOWER,   KC_ENT,                    KC_SPC,  RAISE,   KC_LGUI
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -46,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, _______, KC_LEFT, KC_RGHT, KC_UP,   KC_LBRC,                            KC_RBRC, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
+     KC_LSFT, _______, KC_LEFT, KC_RGHT, KC_UP,   KC_LBRC,                            KC_RBRC, KC_MINS, KC_EQL,  _______, _______, KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_RCTL, _______, _______, _______, KC_DOWN, KC_LCBR, _______,          KC_RALT, KC_RCBR, _______, _______, _______, KC_MINS, KC_RSFT,
+     KC_RCTL, _______, _______, _______, KC_DOWN, KC_LCBR, _______,          KC_RALT, KC_RCBR, KC_UNDS, KC_PLUS, _______, _______, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LALT, _______, _______,                   KC_BSPC, _______, KC_LGUI
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -60,9 +64,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT, _______, DE_SS,   KC_VOLU, KC_PGUP, KC_UNDS,                            KC_EQL,  KC_HOME, KC_MNXT, KC_MSTP, _______, KC_PIPE,
+     KC_LSFT, _______, DE_SS,   KC_VOLU, KC_PGUP, _______,                            _______, KC_HOME, KC_MNXT, KC_MSTP, _______, KC_PIPE,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_RCTL, _______, KC_MUTE, KC_VOLD, KC_PGDN, KC_MINS, _______,          _______, KC_PLUS, KC_END,  KC_MPRV, KC_MPLY, _______, KC_RSFT,
+     KC_RCTL, _______, KC_MUTE, KC_VOLD, KC_PGDN, _______, _______,          _______, _______, KC_END,  KC_MPRV, KC_MPLY, _______, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     KC_LALT, _______, KC_DEL,                    _______, _______, KC_LGUI
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
